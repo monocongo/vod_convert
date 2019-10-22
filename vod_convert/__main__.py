@@ -263,23 +263,8 @@ def pascal_to_kitti(
 
 
 # ------------------------------------------------------------------------------
-if __name__ == "__main__":
-    """
-    Usage: PASCAL to KITTI
-    $ python convert.py --annotations_dir ~/datasets/handgun/annotations/pascal \
-        --out_dir ~/datasets/handgun/annotations/kitti \
-        --in_format pascal --out_format kitti \
-        --images_dir ~/datasets/handgun/images
-        
-    Usage: PASCAL to TFRecord
-    $ python convert.py --annotations_dir ~/datasets/handgun/annotations/pascal \
-        --out_dir ~/datasets/handgun/annotations/tfrecord \
-        --in_format pascal --out_format tfrecord \
-        --images_dir ~/datasets/handgun/images \
-        --shards 4 \
-        --labels handgun rifle \
-        --tfr_base_name weapons.tfrecord
-    """
+def main():
+
     # parse the command line arguments
     args_parser = argparse.ArgumentParser()
     args_parser.add_argument(
@@ -358,3 +343,25 @@ if __name__ == "__main__":
             "Unsupported format conversion: "
             f"{args['in_format']} to {args['out_format']}",
         )
+
+
+# ------------------------------------------------------------------------------
+if __name__ == "__main__":
+    """
+    Usage: PASCAL to KITTI
+    $ python convert.py --annotations_dir ~/datasets/handgun/annotations/pascal \
+        --out_dir ~/datasets/handgun/annotations/kitti \
+        --in_format pascal --out_format kitti \
+        --images_dir ~/datasets/handgun/images
+
+    Usage: PASCAL to TFRecord
+    $ python convert.py --annotations_dir ~/datasets/handgun/annotations/pascal \
+        --out_dir ~/datasets/handgun/annotations/tfrecord \
+        --in_format pascal --out_format tfrecord \
+        --images_dir ~/datasets/handgun/images \
+        --shards 4 \
+        --labels handgun rifle \
+        --tfr_base_name weapons.tfrecord
+    """
+
+    main()
