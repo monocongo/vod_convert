@@ -1,2 +1,2 @@
-certifi==2023.7.22
+certifi==2024.7.4
 contextlib2==0.6.0
